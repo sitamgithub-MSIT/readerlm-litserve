@@ -31,7 +31,7 @@ To get started with this project, follow the steps below:
 3. Open a new terminal window.
 4. Run the client: `python client.py`
 
-Now, you can see the output of the model based on the HTML content. The model will convert the HTML content to Markdown content.
+Now, you can see the model output based on the HTML content. The model will convert the HTML content to Markdown content.
 
 ## Usage
 
@@ -47,6 +47,6 @@ This project is licensed under the [Apache-2.0 License](LICENSE).
 
 ## Contact
 
-If you have any questions or suggestions about the project, feel free to contact me on my GitHub profile.
+If you have any questions or suggestions about the project, please contact me on my GitHub profile.
 
 Happy coding! 🚀
