@@ -21,7 +21,7 @@ class ReaderLMAPI(ls.LitAPI):
         Sets up the model and tokenizer on the specified device.
         """
         # Load the model and tokenizer
-        model_name = "jinaai/reader-lm-0.5b"
+        model_name = "jinaai/reader-lm-1.5b"
         self.model = (
             AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True)
             .eval()
@@ -48,13 +48,14 @@ class ReaderLMAPI(ls.LitAPI):
         inputs = self.tokenizer.encode(input_text, return_tensors="pt").to(self.device)
 
         # Generate a response from the model
-        return self.model.generate(
-            inputs,
-            max_new_tokens=1024,
-            temperature=0.7,
-            do_sample=True,
-            repetition_penalty=1.08,
-        )
+        with torch.no_grad():
+            return self.model.generate(
+                inputs,
+                max_new_tokens=1024,
+                temperature=0.7,
+                do_sample=True,
+                repetition_penalty=1.08,
+            )
 
     def encode_response(self, outputs):
         """
